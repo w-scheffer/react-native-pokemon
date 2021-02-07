@@ -2,7 +2,9 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from '/pages/Home/Home';
+import InitialPage from '/pages/InitialPage/InitialPage';
+import StepOne from '/pages/Register/StepOne/StepOne';
+import StepTwo from '/pages/Register/StepTwo/StepTwo';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -13,8 +15,10 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
+        initialRouteName="InitialPage">
+        <Stack.Screen name="InitialPage" component={InitialPage} />
+        <Stack.Screen name="StepOne" component={StepOne} />
+        <Stack.Screen name="StepTwo" component={StepTwo} />
       </Stack.Navigator>
     </NavigationContainer>
   );

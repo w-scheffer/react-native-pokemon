@@ -44,16 +44,13 @@ Button.propTypes = {
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
   background: PropTypes.string,
-  height: PropTypes.string,
-  width: PropTypes.string,
   margin: PropTypes.string,
 };
 
 Button.defaultProps = {
   onPress: () => {},
   margin: '0 0 0 0',
-  height: '50px',
-  width: '270px',
+  background: '#FF007f',
 };
 
 export default Button;
