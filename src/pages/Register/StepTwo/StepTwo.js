@@ -27,7 +27,7 @@ const StepOne = ({navigation}) => {
           <Input onChangeText={(text) => setName(text)} value={name} />
         </MiddleView>
         <BottomView>
-          <NextIcon onPress={() => navigation.navigate('InitialPage')}>
+          <NextIcon onPress={() => navigation.navigate('Home')}>
             <Image source={next} />
           </NextIcon>
         </BottomView>

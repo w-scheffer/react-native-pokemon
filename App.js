@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import InitialPage from '/pages/InitialPage/InitialPage';
+import Home from '/pages/Home/Home';
 import StepOne from '/pages/Register/StepOne/StepOne';
 import StepTwo from '/pages/Register/StepTwo/StepTwo';
 
@@ -19,6 +20,7 @@ const App = () => {
         <Stack.Screen name="InitialPage" component={InitialPage} />
         <Stack.Screen name="StepOne" component={StepOne} />
         <Stack.Screen name="StepTwo" component={StepTwo} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
