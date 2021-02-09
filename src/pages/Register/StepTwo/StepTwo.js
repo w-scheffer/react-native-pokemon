@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
-import {ImageBackground, StyleSheet, Image} from 'react-native';
+import {Image} from 'react-native';
 import Text from 'components/Text/Text';
+import Background from 'components/Background/Background';
+
+const next = require('assets/next.png');
 
 import {
   Container,
@@ -11,14 +14,11 @@ import {
   NextIcon,
 } from './styles';
 
-const background = require('../../InitialPage/node_modules/assets/bg.png');
-const next = require('assets/next.png');
-
 const StepOne = ({navigation}) => {
   const [name, setName] = useState('');
   return (
     <Container>
-      <ImageBackground source={background} style={styles.image}>
+      <Background>
         <TopView>
           <Text>Hello, trainer Dev!</Text>
         </TopView>
@@ -31,17 +31,9 @@ const StepOne = ({navigation}) => {
             <Image source={next} />
           </NextIcon>
         </BottomView>
-      </ImageBackground>
+      </Background>
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'space-between',
-  },
-});
 
 export default StepOne;

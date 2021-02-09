@@ -1,17 +1,18 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, Image} from 'react-native';
-import {ImageView, ButtonView, PikachuView, Container} from './styles';
+import {Image} from 'react-native';
 import Button from 'components/Button/Button';
+import Background from 'components/Background/Background';
 
-const background = require('assets/bg.png');
 const pokemon = require('assets/pokemon-logo.png');
 const finder = require('assets/finder.png');
 const pikachu = require('assets/pikachu.png');
 
+import {ImageView, ButtonView, PikachuView, Container} from './styles';
+
 const InitialPage = ({navigation}) => {
   return (
     <Container>
-      <ImageBackground source={background} style={styles.image}>
+      <Background>
         <ImageView>
           <Image source={pokemon} />
           <Image source={finder} />
@@ -25,16 +26,9 @@ const InitialPage = ({navigation}) => {
         <PikachuView>
           <Image source={pikachu} />
         </PikachuView>
-      </ImageBackground>
+      </Background>
     </Container>
   );
 };
-const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'space-between',
-  },
-});
 
 export default InitialPage;
