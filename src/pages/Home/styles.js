@@ -6,7 +6,7 @@ export const Container = styled.View`
 
 export const ContentView = styled.View`
   flex: 1;
-  margin: 64px 0 0 0px;
+  margin: 32px 0 0 0px;
   background-color: white;
   height: 90%;
 `;
@@ -15,6 +15,7 @@ export const Header = styled.View`
   height: 20%;
   justify-content: center;
   margin-left: 16px;
+  margin-top: 16px;
 `;
 
 export const TouchIcon = styled.TouchableOpacity`
@@ -25,10 +26,10 @@ export const TouchIcon = styled.TouchableOpacity`
 export const MiddleView = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  margin: 32px 16px 0 16px;
+  margin: 16px 16px 0 16px;
 `;
 
-export const FilterByName = styled.TouchableOpacity`
+export const ArrowIcon = styled.TouchableOpacity`
   flex-direction: row;
 `;
 
@@ -42,4 +43,11 @@ export const PokemonListView = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+`;
+
+export const Input = styled.TextInput`
+  height: 40px;
+  border-bottom-color: white;
+  border-bottom-width: 2px;
+  padding: 0 32px 0 32px;
 `;

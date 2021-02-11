@@ -27,7 +27,12 @@ const StepOne = ({navigation}) => {
           <Input onChangeText={(text) => setName(text)} value={name} />
         </MiddleView>
         <BottomView>
-          <NextIcon onPress={() => navigation.navigate('StepTwo')}>
+          <NextIcon
+            onPress={() =>
+              navigation.navigate('StepTwo', {
+                name: name,
+              })
+            }>
             <Image source={next} />
           </NextIcon>
         </BottomView>

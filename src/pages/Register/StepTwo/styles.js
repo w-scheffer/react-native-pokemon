@@ -5,10 +5,12 @@ export const Container = styled.View`
 `;
 
 export const TopView = styled.View`
-  padding-top: 120px;
+  margin: 120px 0 0 32px;
 `;
 
-export const MiddleView = styled.View``;
+export const MiddleView = styled.View`
+  padding: 0 16px 0 16px;
+`;
 
 export const BottomView = styled.View`
   align-items: center;
@@ -16,12 +18,6 @@ export const BottomView = styled.View`
 `;
 
 export const NextIcon = styled.TouchableOpacity``;
-
-export const Input = styled.TextInput`
-  height: 40px;
-  background-color: white;
-  /* border-bottom: 1px solid white; */
-`;
 
 export const ModalView = styled.View`
   height: 70%;
@@ -44,6 +40,14 @@ export const TouchIcon = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+`;
+
+export const TouchInput = styled.TouchableOpacity`
+  align-items: center;
+  margin-top: 32px;
+  height: 40px;
+  border-bottom-color: white;
+  border-bottom-width: 2px;
 `;
 
 export const Close = styled.TouchableOpacity``;

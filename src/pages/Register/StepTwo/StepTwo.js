@@ -18,7 +18,6 @@ import {
   TopView,
   MiddleView,
   BottomView,
-  Input,
   NextIcon,
   ModalView,
   Header,
@@ -28,26 +27,37 @@ import {
   RadioView,
   TypeView,
   ButtonView,
+  TouchInput,
 } from './styles';
 
-const StepTwo = ({navigation}) => {
-  const [modalVisible, setModalVisible] = useState(true);
-  const [name, setName] = useState('');
+const StepTwo = ({navigation, route}) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [type, setType] = useState('normal');
+
+  const name = route.params.name;
 
   return (
     <>
       <Container>
         <Background>
           <TopView>
-            <Text>Hello, trainer Dev!</Text>
+            <Text>Hello, {name} !</Text>
           </TopView>
           <MiddleView>
-            <Text>... now tell us wich is your favorite Pokémon type: </Text>
-            <Input onChangeText={(text) => setName(text)} value={name} />
+            <Text>... Now tell us wich is your favorite Pokémon type:</Text>
+            <TouchInput onPress={() => setModalVisible(!modalVisible)}>
+              <Text color="#000" fontWeight="bold">
+                {type.charAt(0).toUpperCase() + type.slice(1)}
+              </Text>
+            </TouchInput>
           </MiddleView>
           <BottomView>
-            <NextIcon onPress={() => navigation.navigate('Home')}>
+            <NextIcon
+              onPress={() =>
+                navigation.navigate('Home', {
+                  type: type.toLowerCase(),
+                })
+              }>
               <Image source={next} />
             </NextIcon>
           </BottomView>
@@ -62,7 +72,7 @@ const StepTwo = ({navigation}) => {
         onRequestClose={() => setModalVisible(!modalVisible)}>
         <ModalView>
           <Header>
-            <Text color={'#000'} textAlign="left">
+            <Text color={'#000'} textAlign="left" fontSize="18px">
               Select your favorite pokémon type
             </Text>
             <Close onPress={() => setModalVisible(!modalVisible)}>
@@ -82,7 +92,7 @@ const StepTwo = ({navigation}) => {
                     source={{uri: item.thumbnailImage}}
                   />
                   <Text color={'#000'} fontWeight={'bold'} margin={'0 0 0 8px'}>
-                    {item.name}
+                    {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
                   </Text>
                 </TypeView>
                 <RadioView>

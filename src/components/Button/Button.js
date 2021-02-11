@@ -10,7 +10,7 @@ const Button = ({
   color,
   fontSize,
   fontWeight,
-  background, // TO-DO - talvez remover
+  background,
   height,
   width,
   margin,

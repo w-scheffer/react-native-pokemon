@@ -6,9 +6,12 @@ export const Container = styled.View`
 
 export const TopView = styled.View`
   padding-top: 120px;
+  padding-left: 16px;
 `;
 
-export const MiddleView = styled.View``;
+export const MiddleView = styled.View`
+  padding: 16px 16px;
+`;
 
 export const BottomView = styled.View`
   align-items: center;
@@ -19,6 +22,6 @@ export const NextIcon = styled.TouchableOpacity``;
 
 export const Input = styled.TextInput`
   height: 40px;
-  background-color: white;
-  /* border-bottom: 1px solid white; */
+  border-bottom-color: white;
+  border-bottom-width: 2px;
 `;
