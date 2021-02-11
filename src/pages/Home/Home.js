@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, FlatList, Image} from 'react-native';
+import {StyleSheet, FlatList, Image, TextInput} from 'react-native';
 import Text from 'components/Text/Text';
 
 const arrow = require('assets/arrow.png');
@@ -20,18 +20,21 @@ import {
 
 const Home = () => {
   const [turnArrow, setTurnArrow] = useState(false);
-  const [type, SetType] = useState('normal');
-  const [pokemons, setPokemons] = useState();
+  const [type, SetType] = useState('flying');
+  const [name, setName] = useState('');
+  const [pokemons, setPokemons] = useState(Pokemon);
 
   const AlphabeticalFilter = () => {
     setTurnArrow(!turnArrow);
-    pokemons.sort();
+    pokemons.sort((a, b) =>
+      turnArrow
+        ? b.name.toLowerCase().localeCompare(a.name.toLowerCase())
+        : a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+    );
   };
 
   const FilterByType = ({item, index}) => {
     if (item?.type[0] === type || item?.type[1] === type) {
-      setPokemons(item.name);
-      console.log(pokemons);
       return (
         <>
           <PokemonListView>
@@ -49,9 +52,30 @@ const Home = () => {
     }
   };
 
+  const searchFilterFunction = (text) => {
+    if (text) {
+      const newData = pokemons.filter((item) => {
+        const itemData = item.name ? item.name.toLowerCase() : ''.toLowerCase();
+        const textData = text.toLowerCase();
+        console.log(itemData);
+        return itemData.indexOf(textData) > -1;
+      });
+      setPokemons(newData);
+      setName(text);
+    } else {
+      setPokemons(Pokemon);
+      setName(text);
+    }
+  };
+
   return (
     <Container>
       <Text>Pokemon Finder</Text>
+      <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => searchFilterFunction(text)}
+        value={name}
+      />
       <ContentView>
         <Header>
           <FlatList
@@ -80,17 +104,16 @@ const Home = () => {
             </Text>
             <Image
               source={arrow}
-              style={turnArrow ? styles.arrowDown : styles.arrowUp}
+              style={turnArrow ? styles.arrowUp : styles.arrowDown}
             />
           </FilterByName>
         </MiddleView>
         <HorizontalLine />
 
         <FlatList
-          data={Pokemon}
+          data={pokemons}
           renderItem={FilterByType}
-          initialNumToRender={10}
-          keyExtractor={(item, index) => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
         />
       </ContentView>
     </Container>
@@ -103,12 +126,12 @@ const styles = StyleSheet.create({
     height: 80,
   },
   arrowUp: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
   },
   arrowDown: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
     transform: [{rotate: '180deg'}],
   },
 });

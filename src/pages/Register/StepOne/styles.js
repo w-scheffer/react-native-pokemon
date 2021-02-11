@@ -19,5 +19,6 @@ export const NextIcon = styled.TouchableOpacity``;
 
 export const Input = styled.TextInput`
   height: 40px;
+  background-color: white;
   /* border-bottom: 1px solid white; */
 `;

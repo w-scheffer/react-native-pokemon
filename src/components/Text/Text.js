@@ -39,7 +39,7 @@ TextComponent.propTypes = {
 TextComponent.defaultProps = {
   color: '#ffffff',
   fontWeight: 'normal',
-  textAlign: 'center',
+  textAlign: 'left',
   fontSize: '22px',
   textDecoration: 'none',
   margin: '0 0 0 0',
