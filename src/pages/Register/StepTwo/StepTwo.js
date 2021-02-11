@@ -32,7 +32,7 @@ import {
 
 const StepTwo = ({navigation, route}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [type, setType] = useState('normal');
+  const [type, setType] = useState('poison');
 
   const name = route.params.name;
 
